@@ -21,11 +21,18 @@ provider "aws"{
 resource "aws_instance" "app_server"{
     #Define a imagem que vamos utilizar
     ami = "ami-0cf2b4e024cdb6960"
-    key_name = "iac-alura"
     instance_type = "t2.micro"
+    key_name = "iac-alura"
+    # user_data = <<-EOF
+    #             #!/bin/bash
+    #         cd /home/ubuntu
+    #         echo "<h1>Feito com Terraform</h1>" > index.html
+    #         nohup busybox httpd -f -p 8080 &
+    #             EOF
+    
 
 tags = {
     #Nome da Instancia
-    Name = "Primeira instancia"
+    Name = "Teste aws"
 }
 }
